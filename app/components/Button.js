@@ -9,11 +9,12 @@ export default function Button({
   variant = "primary",
   iconStart,
   iconEnd,
+  style,
 }) {
   return (
     <TouchableOpacity
       onPress={onPress}
-      style={[styles.button, { backgroundColor: colors[variant] }]}>
+      style={[styles.button, { backgroundColor: colors[variant], ...style }]}>
       {iconStart && (
         <MaterialCommunityIcons
           name={iconStart}
@@ -32,7 +33,6 @@ export default function Button({
 const styles = StyleSheet.create({
   button: {
     width: "100%",
-
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
@@ -44,5 +44,7 @@ const styles = StyleSheet.create({
     color: colors.white,
     textAlign: "center",
     marginHorizontal: 5,
+    fontSize: 16,
+    fontWeight: "bold",
   },
 });
