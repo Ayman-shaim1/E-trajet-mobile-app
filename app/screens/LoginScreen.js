@@ -1,5 +1,5 @@
 import { StyleSheet, View } from "react-native";
-import React, { useState } from "react";
+import React from "react";
 import { Text, Screen, Divider, Button } from "../components";
 import * as Yup from "yup";
 import {
@@ -11,18 +11,16 @@ import {
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
-    .required("veuiller saisire votre email !")
+    .required("veuillez saisire votre email !")
     .email("email invalid !")
     .label("Email"),
   password: Yup.string()
-    .required("veuller saisire votre mot de passe !")
+    .required("veuillez saisire votre mot de passe !")
     .min(4, "il fau saisire au minimum 4 carctere !")
     .label("Password"),
 });
 
 export default function LoginScreen() {
-  const [loginFailed] = useState(false);
-
   const handleSubmit = async ({ email, password }) => {
     console.log(email, password);
   };
@@ -36,10 +34,6 @@ export default function LoginScreen() {
         initialValues={{ email: "", password: "" }}
         onSubmit={handleSubmit}
         validationSchema={validationSchema}>
-        <ErrorMessage
-          error='Invalid email and/or password.'
-          visible={loginFailed}
-        />
         <FormField
           autoCapitalize='none'
           autoCorrect={false}
@@ -65,7 +59,7 @@ export default function LoginScreen() {
             style={styles.loginButton}
           />
 
-          <Button text="S'inscrire" iconStart='plus' variant='brown' />
+          <Button text="S'inscrire" iconStart='account-plus' variant='brown' />
         </View>
       </Form>
       <Divider />
@@ -87,8 +81,7 @@ export default function LoginScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    padding: 10,
+    padding: 5,
   },
   title: {
     marginTop: 70,

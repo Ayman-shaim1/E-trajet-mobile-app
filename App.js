@@ -1,5 +1,12 @@
-import { LoginScreen } from "./app/screens";
+import {
+  RegisterScreen,
+  WelcomeScreen,
+  LoginScreen,
+  ContactScreen,
+  AboutScreen,
+  HomeScreen,
+} from "./app/screens";
 
 export default function App() {
-  return <LoginScreen />;
+  return <AboutScreen />;
 }

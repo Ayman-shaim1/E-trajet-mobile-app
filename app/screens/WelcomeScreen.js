@@ -19,7 +19,7 @@ export default function WelcomeScreen() {
       </View>
       <View style={styles.buttonsContainer}>
         <Button text='Se connecter' iconStart='login' />
-        <Button text="S'inscrire" iconStart='plus' variant='brown' />
+        <Button text="S'inscrire" iconStart='account-plus' variant='brown' />
       </View>
     </ImageBackground>
   );
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   background: {
     flex: 1,
     justifyContent: "flex-end",
-    padding: 10,
+    padding: 5,
   },
 
   textContainer: {

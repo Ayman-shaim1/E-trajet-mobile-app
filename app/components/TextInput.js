@@ -14,7 +14,11 @@ export default function TextInput({ icon, ...otherProps }) {
           style={styles.icon}
         />
       )}
-      <RNTextInput placeholderTextColor='#adb5bd' {...otherProps} />
+      <RNTextInput
+        placeholderTextColor='#adb5bd'
+        {...otherProps}
+        style={styles.textInput}
+      />
     </View>
   );
 }
@@ -33,5 +37,9 @@ const styles = StyleSheet.create({
   },
   icon: {
     marginRight: 10,
+  },
+  textInput: {
+    width: "100%",
+    height: "100%",
   },
 });
