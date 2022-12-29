@@ -12,7 +12,7 @@ export default function AboutScreen() {
             À propos de nous
           </Text>
           <View style={styles.iconContainer}>
-            <Image source={require("../assets/info.png")} style={styles.icon} />
+            <Image source={require("../assets/images/info.png")} style={styles.icon} />
           </View>
         </View>
         <View style={styles.sectionBgPrimary}>

@@ -8,7 +8,7 @@ export default function WelcomeScreen() {
     <ImageBackground
       //   blurRadius={10}
       style={styles.background}
-      source={require("../assets/background.jpg")}>
+      source={require("../assets/images/background.jpg")}>
       <View style={styles.textContainer}>
         <Text as='header2' style={styles.tagline}>
           Bonjour !

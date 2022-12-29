@@ -1,3 +1,4 @@
+import { useFonts } from "expo-font";
 import {
   RegisterScreen,
   WelcomeScreen,
@@ -8,5 +9,5 @@ import {
 } from "./app/screens";
 
 export default function App() {
-  return <AboutScreen />;
+  return <HomeScreen />;
 }

@@ -8,6 +8,7 @@ export default function Card({ children }) {
 
 const styles = StyleSheet.create({
   card: {
+    width:'100%',
     paddingVertical: 15,
     paddingHorizontal: 8,
     marginVertical: 10,
