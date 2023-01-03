@@ -31,6 +31,9 @@ export default function ContactScreen() {
   return (
     <Screen style={styles.container}>
       <ScrollView>
+        <Text as='header4' style={styles.logo}>
+          LOGO
+        </Text>
         <Text as='header3' style={styles.title}>
           Contactez nous
         </Text>
@@ -86,8 +89,13 @@ const styles = StyleSheet.create({
   container: {
     padding: 5,
   },
-  title: {
+  logo: {
+    marginTop: 20,
     textAlign: "center",
-    marginVertical: 40,
+  },
+  title: {
+    marginTop: 20,
+    marginBottom: 20,
+    textAlign: "center",
   },
 });

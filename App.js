@@ -9,5 +9,5 @@ import {
 } from "./app/screens";
 
 export default function App() {
-  return <HomeScreen />;
+  return <WelcomeScreen />;
 }

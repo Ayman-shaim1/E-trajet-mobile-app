@@ -1,6 +1,6 @@
-import { ScrollView, StyleSheet, View } from "react-native";
+import { Image, ScrollView, StyleSheet, View } from "react-native";
 import React from "react";
-import { Text, Screen, Button } from "../components";
+import { Text, Screen, Button, Divider } from "../components";
 import * as Yup from "yup";
 import {
   Form,
@@ -38,8 +38,16 @@ export default function RegisterScreen() {
   };
 
   return (
-    <Screen   style={styles.container}>
+    <Screen style={styles.container}>
       <ScrollView>
+        <View style={styles.logoContainer}>
+          <Image
+            source={require("../assets/images/logo.png")}
+            style={styles.logo}
+            resizeMode='center'
+          />
+        </View>
+
         <Text as='header3' style={styles.title}>
           Inscriver vous ici !
         </Text>
@@ -93,8 +101,8 @@ export default function RegisterScreen() {
               iconStart='account-plus'
               style={styles.registerButton}
             />
-
-            <Button text='se connecter' iconStart='login' variant='brown' />
+            <Divider />
+            <Button text='se connecter' iconStart='login' variant='secondary' />
           </View>
         </Form>
       </ScrollView>
@@ -106,8 +114,17 @@ const styles = StyleSheet.create({
   container: {
     padding: 5,
   },
+  logoContainer: {
+    justifyContent: "center",
+    flexDirection: "row",
+  },
+  logo: {
+    width: "100%",
+    height: 70,
+    marginVertical: 20,
+    textAlign: "center",
+  },
   title: {
-    marginTop: 50,
     marginBottom: 20,
     textAlign: "center",
   },
