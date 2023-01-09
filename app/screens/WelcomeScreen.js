@@ -4,33 +4,7 @@ import { Button, Text } from "../components";
 import colors from "../config/colors";
 
 export default function WelcomeScreen() {
-  return (
-    <ImageBackground
-      blurRadius={5}
-      style={styles.background}
-      source={require("../assets/images/background.jpg")}>
-      <View style={styles.textContainer}>
-        <View style={styles.logoContainer}>
-          <Image
-            source={require("../assets/images/logo.png")}
-            style={styles.logo}
-            resizeMode='center'
-          />
-        </View>
-        <Text as='header5' style={styles.tagline}>
-          Bienvenue dans E-trajet
-        </Text>
-      </View>
-      <View style={styles.buttonsContainer}>
-        <Button text='Se connecter' iconStart='login' />
-        <Button
-          text="S'inscrire"
-          iconStart='account-plus'
-          variant='secondary'
-        />
-      </View>
-    </ImageBackground>
-  );
+  return <View></View>;
 }
 
 const styles = StyleSheet.create({
@@ -61,6 +35,6 @@ const styles = StyleSheet.create({
   },
   tagline: {
     color: colors.white,
-    textAlign:'center'
+    textAlign: "center",
   },
 });

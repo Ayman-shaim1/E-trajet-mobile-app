@@ -6,8 +6,9 @@ import {
   ContactScreen,
   AboutScreen,
   HomeScreen,
+  ValidationCodeScreen
 } from "./app/screens";
 
 export default function App() {
-  return <HomeScreen />;
+  return <RegisterScreen />;
 }

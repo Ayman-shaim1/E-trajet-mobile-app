@@ -31,9 +31,6 @@ export default function ContactScreen() {
   return (
     <Screen style={styles.container}>
       <ScrollView>
-        <Text as='header4' style={styles.logo}>
-          LOGO
-        </Text>
         <Text as='header3' style={styles.title}>
           Contactez nous
         </Text>

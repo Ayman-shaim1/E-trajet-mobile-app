@@ -5,6 +5,9 @@ export { default as Screen } from "./Screen";
 export { default as Divider } from "./Divider";
 export { default as Card } from "./Card";
 export { default as Loader } from "./Loader";
+export { default as Message } from "./Message";
+
+
 
 
 

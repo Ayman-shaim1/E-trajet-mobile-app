@@ -31,7 +31,7 @@ export default {
     header6: {
       fontWeight: "bold",
       color: colors.dark,
-      fontSize: 18,
+      fontSize: 17,
     },
     paragraph: {
       color: colors.dark,

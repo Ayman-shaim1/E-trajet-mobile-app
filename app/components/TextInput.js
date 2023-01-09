@@ -1,11 +1,12 @@
-import { StyleSheet, View, TextInput as RNTextInput } from "react-native";
+import { StyleSheet, View, TextInput as RNTextInput, Text } from "react-native";
 import React from "react";
 import colors from "../config/colors";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-export default function TextInput({ icon, ...otherProps }) {
+export default function TextInput({ icon, label,style, ...otherProps }) {
   return (
-    <View style={[styles.container]}>
+    <View style={[styles.container,style]}>
+      <Text style={styles.label}>{label}</Text>
       {icon && (
         <MaterialCommunityIcons
           name={icon}
@@ -25,15 +26,15 @@ export default function TextInput({ icon, ...otherProps }) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.light,
-    borderRadius: 5,
+    borderRadius: 20,
     flexDirection: "row",
     color: "#55595c",
-    backgroundColor: "#f7f7f9",
     alignItems: "center",
     padding: 15,
-    marginVertical: 10,
-    width: "100%",
+    marginVertical: 20,
+    borderColor: colors.secondary,
+    borderWidth: 1,
+    position: "relative",
   },
   icon: {
     marginRight: 10,
@@ -41,5 +42,15 @@ const styles = StyleSheet.create({
   textInput: {
     width: "100%",
     height: "100%",
+    paddingHorizontal: 20,
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+  label: {
+    position: "absolute",
+    backgroundColor: colors.white,
+    padding: 5,
+    top: "-50%",
+    left: "5%",
   },
 });

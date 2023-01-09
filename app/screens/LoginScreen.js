@@ -1,6 +1,6 @@
 import { Image, ScrollView, StyleSheet, View } from "react-native";
-import React from "react";
-import { Text, Screen, Divider, Button } from "../components";
+import React, { useState } from "react";
+import { Text, Screen, Divider, Button, TextInput } from "../components";
 import * as Yup from "yup";
 import {
   Form,
@@ -8,6 +8,7 @@ import {
   FormField,
   SubmitButton,
 } from "../components/forms";
+import colors from "../config/colors";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -21,71 +22,111 @@ const validationSchema = Yup.object().shape({
 });
 
 export default function LoginScreen() {
-  const handleSubmit = async ({ email, password }) => {
-    console.log(email, password);
-  };
+  const [showTxt, setShowTxt] = useState("email");
 
   return (
     <Screen style={styles.container}>
       <ScrollView>
-        <View style={styles.logoContainer}>
+        <View style={styles.logocontainer}>
           <Image
-            source={require("../assets/images/logo.png")}
+            source={require("../assets/images/logo2.png")}
             style={styles.logo}
-            resizeMode='center'
           />
         </View>
-        <Text as='header3' style={styles.title}>
-          Connecter vous ici !
-        </Text>
-        <Form
-          initialValues={{ email: "", password: "" }}
-          onSubmit={handleSubmit}
-          validationSchema={validationSchema}>
-          <FormField
-            autoCapitalize='none'
-            autoCorrect={false}
-            icon='email'
+        <View style={styles.textContainer}>
+          <Text as='header2'>Log in</Text>
+          <Text as='header6' color='gray'>
+            Lorem ipsum dolor sit amet.
+          </Text>
+        </View>
+        <View style={styles.switchButtonContainer}>
+          <Button
+            style={styles.btnSwitch}
+            variant={`${showTxt === "telephone" ? "primary" : "white"}`}
+            keyboardType='numeric'
+            onPress={() => setShowTxt("telephone")}
+          />
+          <Button
+            style={styles.btnSwitch}
+            variant={`${showTxt === "email" ? "primary" : "white"}`}
             keyboardType='email-address'
-            name='email'
-            placeholder='Email'
             textContentType='emailAddress'
+            onPress={() => setShowTxt("email")}
           />
-          <FormField
-            autoCapitalize='none'
-            autoCorrect={false}
-            icon='lock'
-            name='password'
-            placeholder='Password'
-            secureTextEntry
-            textContentType='password'
+        </View>
+
+        {showTxt === "email" ? (
+          <TextInput placeholder='xyz@example.com' label='Email' type='email' />
+        ) : (
+          <TextInput
+            placeholder='01 00 00 00 00 00'
+            label='Telephone'
+            type='number'
           />
-          <View style={styles.buttonsContainer}>
-            <SubmitButton
-              text='Se connecter'
-              iconStart='login'
-              style={styles.loginButton}
-            />
-            <Divider />
-            <Button
-              text="S'inscrire"
-              iconStart='account-plus'
-              variant='secondary'
-            />
+        )}
+
+        <Divider />
+        <Button
+          variant='white'
+          text='Log in with Gmail'
+          style={styles.smLoginButton}
+          iconStart={require("../assets/images/google-logo.png")}
+        />
+        <Button
+          variant='third'
+          text='Log in with Apple'
+          style={styles.smLoginButton}
+          iconStart={require("../assets/images/apple-logo.png")}
+        />
+        <Button
+          variant='white'
+          text='Log in with facebok '
+          style={styles.smLoginButton}
+          iconStart={require("../assets/images/facebook-logo.png")}
+        />
+        <Button
+          variant='third'
+          text='Log in with Instagram'
+          style={styles.smLoginButton}
+          iconStart={require("../assets/images/instagram-logo.png")}
+        />
+        <View style={styles.signupTextContainer}>
+          <Text as='paragraph' style={styles.text} color='gray'>
+            Don't have an account?{" "}
+          </Text>
+          <Text as='paragraph' style={styles.text} color='primary'>
+            Sign Up
+          </Text>
+        </View>
+        <Button text='connexion' variant='secondary' />
+        <View style={styles.TCPPTextContainer}>
+          <Text as='paragraph' style={styles.text} color='gray'>
+            By continue to log in. you accept our company
+          </Text>
+
+          <View style={styles.TCPPAndTextContainer}>
+            <Text
+              as='paragraph'
+              style={[
+                styles.text,
+                { borderBottomWidth: 1, borderColor: colors.primary },
+              ]}
+              color='primary'>
+              Terms & conditions
+            </Text>
+            <Text as='paragraph' style={[styles.text]} color='gray'>
+              and
+            </Text>
+            <Text
+              as='paragraph'
+              style={[
+                styles.text,
+                { borderBottomWidth: 1, borderColor: colors.primary },
+              ]}
+              color='primary'>
+              Privacy plicy
+            </Text>
           </View>
-        </Form>
-        <Text style={styles.or}>or</Text>
-        <View style={styles.buttonsContainer}>
-          <Button
-            variant='danger'
-            text='Se connecter avec google'
-            iconStart='google'
-          />
-          <Button
-            variant='secondary'
-            text='Se connecter avec fcebook'
-            iconStart='facebook'
-          />
         </View>
       </ScrollView>
     </Screen>
@@ -96,31 +137,45 @@ const styles = StyleSheet.create({
   container: {
     padding: 5,
   },
-
-  logoContainer: {
-    justifyContent: "center",
-    flexDirection: "row",
-  },
-  logo: {
-    width: "100%",
-    height: 70,
-    marginVertical: 0,
-    marginBottom: 0,
+  logocontainer: {
     marginTop: 30,
-    textAlign: "center",
+    alignItems: "center",
   },
-  title: {
-    marginTop: 10,
-    marginBottom: 30,
-    textAlign: "center",
+  textContainer: {
+    alignItems: "center",
+    marginVertical: 20,
   },
-  loginButton: {
-    marginBottom: 10,
+  switchButtonContainer: {
+    flexDirection: "row",
+    borderColor: colors.third,
+    borderWidth: 1,
+    padding: 5,
+    borderRadius: 20,
   },
-  buttonsContainer: {
-    marginVertical: 5,
+  text: {
+    fontWeight: "bold",
+    marginHorizontal: 2,
   },
-  or: {
-    textAlign: "center",
+  btnSwitch: {
+    width: "50%",
+    margin: 1,
+    borderWidth: 0,
+  },
+
+  smLoginButton: {
+    marginVertical: 10,
+    padding: 20,
+  },
+  signupTextContainer: {
+    flexDirection: "row",
+    marginVertical: 20,
+    justifyContent: "center",
+  },
+  TCPPTextContainer: {
+    marginVertical: 20,
+    alignItems: "center",
+  },
+  TCPPAndTextContainer: {
+    flexDirection: "row",
   },
 });

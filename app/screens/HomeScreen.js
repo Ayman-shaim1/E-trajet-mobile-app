@@ -1,25 +1,35 @@
 import { Image, ScrollView, StyleSheet, View } from "react-native";
 import React, { useState } from "react";
-import { Button, Card, Text, TextInput, Loader, Screen } from "../components";
+import {
+  Button,
+  Card,
+  Text,
+  TextInput,
+  Loader,
+  Message,
+  Screen,
+} from "../components";
 import axios from "axios";
+
 const HomeScreen = () => {
   const [text, setText] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const fetchApi = async () => {
-    console.log("call api");
-    const { data } = await axios.get("http://192.168.1.7:5000");
-    setText(data);
+    try {
+      console.log("call api");
+      const { data } = await axios.get("http://localhost:5000");
+      setText(data);
+    } catch (error) {
+      console.log(error);
+      setErrorMessage(error.message);
+    }
   };
 
   return (
     <Screen style={styles.container}>
       <ScrollView>
-        <View style={styles.logoContainer}>
-          <Image
-            source={require("../assets/images/logo.png")}
-            style={styles.logo}
-          />
-        </View>
+        {errorMessage && <Message text={errorMessage} />}
         <Button
           variant='primary'
           text='fetch api'
@@ -55,6 +65,6 @@ const styles = StyleSheet.create({
   },
   button: {
     marginVertical: 10,
-    width: "50%",
+    width: "100%",
   },
 });

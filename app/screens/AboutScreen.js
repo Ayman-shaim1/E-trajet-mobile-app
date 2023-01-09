@@ -6,44 +6,7 @@ import colors from "../config/colors";
 export default function AboutScreen() {
   return (
     <Screen>
-      <ScrollView style={styles.container}>
-        <View style={[styles.sectionBgBrown, { height: 260 }]}>
-          <Text as='header3' style={styles.title}>
-            À propos de nous
-          </Text>
-          <View style={styles.iconContainer}>
-            <Image source={require("../assets/images/info.png")} style={styles.icon} />
-          </View>
-        </View>
-        <View style={styles.sectionBgPrimary}>
-          <Text as='header3' style={styles.title}>
-            Notre histoire
-          </Text>
-          <Text style={styles.text} as='paragraph'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Perspiciatis, adipisci impedit voluptatum asperiores, natus mollitia
-            sint tempora excepturi autem in molestias repudiandae doloribus
-            cumque eaque libero quod unde eum. Dicta suscipit hic vitae
-            repudiandae recusandae, obcaecati illo, nobis odit deserunt earum ab
-            atque tempora placeat eos laudantium aspernatur quod quo. Harum
-            minima error eaque eius?
-          </Text>
-        </View>
-        <View style={styles.sectionBgBrown}>
-          <Text as='header3' style={styles.title}>
-            Notre but
-          </Text>
-          <Text style={styles.text} as='paragraph'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Perspiciatis, adipisci impedit voluptatum asperiores, natus mollitia
-            sint tempora excepturi autem in molestias repudiandae doloribus
-            cumque eaque libero quod unde eum. Dicta suscipit hic vitae
-            repudiandae recusandae, obcaecati illo, nobis odit deserunt earum ab
-            atque tempora placeat eos laudantium aspernatur quod quo. Harum
-            minima error eaque eius?
-          </Text>
-        </View>
-      </ScrollView>
+      <ScrollView style={styles.container}></ScrollView>
     </Screen>
   );
 }
