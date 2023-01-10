@@ -5,7 +5,7 @@ import colors from "../config/colors";
 
 const ValidationCodeScreen = () => {
   const [numbers] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9]);
-  const [numbersOutput,setNumberOutput] = useState([null, null, null, null]);
+  const [numbersOutput, setNumberOutput] = useState([null, null, null, null]);
   const [numberOutputIndex, setNumberOutputIndex] = useState(0);
 
   const setNumberHandler = value => {

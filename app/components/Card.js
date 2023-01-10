@@ -2,17 +2,31 @@ import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import colors from "../config/colors";
 
-export default function Card({ children }) {
-  return <View style={styles.card}>{children}</View>;
+export default function Card({ children, style, variant, customColor }) {
+  return (
+    <View
+      style={[
+        styles.card,
+        style,
+        {
+          backgroundColor: !customColor
+            ? variant
+              ? colors[variant]
+              : colors.white
+            : customColor,
+        },
+      ]}>
+      {children}
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
   card: {
-    width:'100%',
     paddingVertical: 15,
-    paddingHorizontal: 8,
-    marginVertical: 10,
-    marginHorizontal: 10,
+    paddingHorizontal: 4,
+    marginVertical: 5,
+    marginHorizontal: 3,
     backgroundColor: colors.white,
     shadowColor: "#000",
     shadowOffset: {
@@ -22,6 +36,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.23,
     shadowRadius: 2.62,
     elevation: 4,
-    borderRadius: 5,
+    borderRadius: 20,
   },
 });

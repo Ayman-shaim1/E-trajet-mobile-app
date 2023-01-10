@@ -6,9 +6,7 @@ export { default as Divider } from "./Divider";
 export { default as Card } from "./Card";
 export { default as Loader } from "./Loader";
 export { default as Message } from "./Message";
-
-
-
-
-
+export { default as Logo } from "./Logo";
+export { default as Header } from "./Header";
+export { default as Avatar } from "./Avatar";
 

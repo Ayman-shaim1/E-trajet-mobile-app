@@ -1,14 +1,38 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import React from "react";
-
+import { Text, Avatar } from "../components";
 const Header = () => {
   return (
-    <View>
-      <Text>Header</Text>
+    <View style={styles.headerContainer}>
+      <View style={styles.textContainer}>
+        <View style={styles.text}>
+          <Text as='header4' color='primary'>
+            Hi,
+          </Text>
+          <Text as='header4' color='white'>
+            {" "}
+            Ayman
+          </Text>
+        </View>
+        <View style={styles.text}>
+          <Text color='white'>Lorem ipsum dolor sit amet.</Text>
+        </View>
+      </View>
+      <Avatar image={require("../assets/images/ayman.jpg")} />
     </View>
   );
 };
 
 export default Header;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  headerContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    padding: 7,
+  },
+  textContainer: {},
+  text: {
+    flexDirection: "row",
+  },
+});

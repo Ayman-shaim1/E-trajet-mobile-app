@@ -27,7 +27,8 @@ export default function Button({
         style={[
           styles.text,
           {
-            color:   variant === "white" || variant === "third"
+            color:
+              variant === "white" || variant === "third"
                 ? colors.secondary
                 : colors.white,
           },
@@ -47,9 +48,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
     padding: 15,
-
     borderRadius: 17,
     borderColor: colors.third,
+    margin: 2,
   },
   text: {
     textAlign: "center",

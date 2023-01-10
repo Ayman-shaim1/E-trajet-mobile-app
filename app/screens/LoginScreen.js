@@ -1,6 +1,6 @@
 import { Image, ScrollView, StyleSheet, View } from "react-native";
 import React, { useState } from "react";
-import { Text, Screen, Divider, Button, TextInput } from "../components";
+import { Text, Screen, Divider, Button, TextInput, Logo } from "../components";
 import * as Yup from "yup";
 import {
   Form,
@@ -27,12 +27,7 @@ export default function LoginScreen() {
   return (
     <Screen style={styles.container}>
       <ScrollView>
-        <View style={styles.logocontainer}>
-          <Image
-            source={require("../assets/images/logo2.png")}
-            style={styles.logo}
-          />
-        </View>
+        <Logo />
         <View style={styles.textContainer}>
           <Text as='header2'>Log in</Text>
           <Text as='header6' color='gray'>
@@ -137,10 +132,7 @@ const styles = StyleSheet.create({
   container: {
     padding: 5,
   },
-  logocontainer: {
-    marginTop: 30,
-    alignItems: "center",
-  },
+
   textContainer: {
     alignItems: "center",
     marginVertical: 20,
