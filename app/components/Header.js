@@ -29,7 +29,9 @@ const styles = StyleSheet.create({
   headerContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "center",
     padding: 7,
+    backgroundColor: "trasnparent",
   },
   textContainer: {},
   text: {

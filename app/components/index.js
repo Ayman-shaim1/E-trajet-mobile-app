@@ -9,4 +9,6 @@ export { default as Message } from "./Message";
 export { default as Logo } from "./Logo";
 export { default as Header } from "./Header";
 export { default as Avatar } from "./Avatar";
+export { default as TabButton } from "./TabButton";
+
 
