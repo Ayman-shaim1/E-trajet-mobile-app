@@ -13,20 +13,20 @@ const ProfileScreen = () => <Text>Profile</Text>;
 
 const activeStyle = {
   backgroundColor: colors.darkGray,
-  width: 60,
-  height: 60,
-  borderRadius: 30,
+  width: 50,
+  height: 50,
+  borderRadius: 25,
   justifyContent: "center",
   alignItems: "center",
-  marginHorizontal: 25,
+  marginHorizontal: 30,
 };
 const style = {
-  width: 60,
-  height: 60,
-  borderRadius: 30,
+  width: 50,
+  height: 50,
+  borderRadius: 25,
   justifyContent: "center",
   alignItems: "center",
-  marginHorizontal: 25,
+  marginHorizontal: 30,
 };
 const TabButton = ({ navigation, icon, onPress }) => {
   return (
@@ -52,10 +52,10 @@ export default function App() {
             backgroundColor: "transparent",
             position: "absolute",
             borderTopWidth: 0,
-            elevation: 0,
+            height: 60,
             alignItems: "center",
-            height: 70,
-            paddingVertical: 5,
+            justifyContent: "center",
+
             elevation: 0,
           },
         }}>

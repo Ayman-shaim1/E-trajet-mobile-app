@@ -27,7 +27,7 @@ const AppNavigator = () => {
           borderTopWidth: 0,
           elevation: 0,
           alignItems: "center",
-          height: 80,
+          height: 70,
           paddingVertical: 10,
         },
       }}>

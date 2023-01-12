@@ -3,10 +3,10 @@ import React from "react";
 import colors from "../config/colors";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-export default function TextInput({ icon, label,style, ...otherProps }) {
+export default function TextInput({ icon, label, style, ...otherProps }) {
   return (
-    <View style={[styles.container,style]}>
-      <Text style={styles.label}>{label}</Text>
+    <View style={[styles.container, style]}>
+      {label && <Text style={styles.label}>{label}</Text>}
       {icon && (
         <MaterialCommunityIcons
           name={icon}
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     paddingHorizontal: 20,
-    fontSize: 18,
+    fontSize: 15,
     fontWeight: "bold",
   },
   label: {
