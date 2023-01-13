@@ -1,16 +1,14 @@
 import * as React from "react";
-import { Text } from "react-native";
+import { Text, TouchableOpacity, StyleSheet, View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { TabButton } from "../components";
-import { HomeScreen } from "../screens";
-
+import { HomeScreen, MapScreen } from "../screens";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import colors from "../config/colors";
-
+import { Button } from "../components";
 const Tab = createBottomTabNavigator();
 
 const ProfileScreen = () => <Text>Profile</Text>;
-
-const MapScreen = () => <Text>Cart</Text>;
 
 const AppNavigator = () => {
   return (
@@ -18,17 +16,13 @@ const AppNavigator = () => {
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
-          left: 0,
-          bottom: 0,
-          right: 0,
-          // position: "absolute",
-          // backgroundColor: "transparent",
-          backgroundColor: colors.secondary,
+          backgroundColor: "transparent",
+          position: "absolute",
           borderTopWidth: 0,
-          elevation: 0,
           alignItems: "center",
-          height: 70,
-          paddingVertical: 10,
+          justifyContent: "center",
+          elevation: 0,
+          paddingBottom: 50,
         },
       }}>
       <Tab.Screen
@@ -37,6 +31,7 @@ const AppNavigator = () => {
         options={({ navigation }) => ({
           tabBarButton: () => (
             <TabButton
+              navigation={navigation}
               onPress={() => navigation.navigate("Home")}
               icon='home'
             />
@@ -49,6 +44,7 @@ const AppNavigator = () => {
         options={({ navigation }) => ({
           tabBarButton: () => (
             <TabButton
+              navigation={navigation}
               onPress={() => navigation.navigate("Map")}
               icon='map-outline'
             />
@@ -61,6 +57,7 @@ const AppNavigator = () => {
         options={({ navigation }) => ({
           tabBarButton: () => (
             <TabButton
+              navigation={navigation}
               onPress={() => navigation.navigate("Profile")}
               icon='account-outline'
             />

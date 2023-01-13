@@ -18,7 +18,10 @@ const ValidationCodeScreen = () => {
   };
 
   return (
-    <Screen>
+    <Screen
+      style={{
+        backgroundColor: "#fff",
+      }}>
       <ScrollView>
         <View style={styles.timerContainer}>
           <Text as='header1'>{styles.timerText}01:16</Text>

@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
     fontSize: 16,
     fontWeight: "bold",
+    color: colors.darkGray,
   },
   icon: {
     width: 20,

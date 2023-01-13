@@ -7,25 +7,33 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import colors from "../config/colors";
 
 export default function MapScreen() {
-  const [location, setLocation] = useState();
+  const [locationExiste, setLocationExiste] = useState(false);
+  const [location, setLocation] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
-  const getLocation = async () => {
-    let { status } = await Location.requestForegroundPermissionsAsync();
-    console.log(status);
-    if (status !== "granted") {
-      return;
-    }
+  const [message, setMessage] = useState("");
 
-    let location = await Location.getCurrentPositionAsync({});
-    setLocation(location);
+  const getLocation = async () => {
+    try {
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      console.log("status", status);
+      if (status == "granted") {
+        setMessage("location permission is granted !");
+        return;
+      }
+      let location = await Location.getCurrentPositionAsync({});
+      setLocationExiste(true);
+      setLocation(location);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
     getLocation();
-  }, [location]);
+  }, []);
 
   return (
-    <Screen style={styles.container}>
+    <View style={styles.container}>
       <Modal
         style={{ padding: 40, height: 500 }}
         animationType='slide'
@@ -127,21 +135,22 @@ export default function MapScreen() {
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundColor: " rgba(0, 0, 0, 0.8)",
+            backgroundColor: " rgba(0, 0, 0, 0.7)",
             zIndex: 100,
           }}></View>
       )}
       <View
         style={{
           position: "absolute",
-          top: "0%",
+          top: "4%",
           alignSelf: "center",
           width: "100%",
+          zIndex: 1000,
         }}>
-        <Header />
+        <Header textColor="darkGray" />
       </View>
 
-      {location ? (
+      {locationExiste ? (
         <MapView
           style={styles.map}
           initialRegion={{
@@ -158,9 +167,15 @@ export default function MapScreen() {
           />
         </MapView>
       ) : (
-        <Text style={{ alignSelf: "center", position: "absolute", top: "50%" }}>
-          Loading...
-        </Text>
+        <MapView
+          style={styles.map}
+          initialRegion={{
+            latitude: 34.05,
+            longitude: -6.81667,
+            latitudeDelta: 0.012,
+            longitudeDelta: 0.002,
+          }}
+        />
       )}
 
       <View
@@ -176,18 +191,16 @@ export default function MapScreen() {
           onPress={() => setModalVisible(true)}
         />
       </View>
-    </Screen>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 7,
   },
   map: {
     width: "100%",
     height: "100%",
-    flex: 1,
   },
 });

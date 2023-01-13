@@ -2,23 +2,38 @@ import { StyleSheet } from "react-native";
 import React from "react";
 import { TouchableOpacity } from "react-native-web";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import colors from "../config/colors";
 
-export default function TabButton({ icon, onPress }) {
+export default function TabButton({ navigation, icon, onPress }) {
   return (
-    <TouchableOpacity style={styles.activeStyle} onPress={onPress}>
-      <MaterialCommunityIcons name={icon} size={20} color='white' />
+    <TouchableOpacity
+      style={navigation.isFocused() ? styles.activeTabButton: styles.tabButton}
+      onPress={onPress}>
+      <MaterialCommunityIcons
+        name={icon}
+        size={20}
+        color={navigation.isFocused() ? colors.white : colors.gray}
+      />
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
-  activeStyle: {
-    backgroundColor: "#4C4E52",
+  tabButton: {
+    backgroundColor: colors.darkGray,
     width: 50,
     height: 50,
-    borderRadius: 30,
+    borderRadius: 25,
     justifyContent: "center",
     alignItems: "center",
-    marginHorizontal: 20,
+    marginHorizontal: 30,
+  },
+  activeTabButton: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    justifyContent: "center",
+    alignItems: "center",
+    marginHorizontal: 30,
   },
 });

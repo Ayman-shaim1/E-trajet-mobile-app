@@ -38,15 +38,14 @@ export default function LoginScreen() {
           <Button
             style={styles.btnSwitch}
             variant={`${showTxt === "telephone" ? "primary" : "white"}`}
-            keyboardType='numeric'
             onPress={() => setShowTxt("telephone")}
+            text='Phone'
           />
           <Button
             style={styles.btnSwitch}
             variant={`${showTxt === "email" ? "primary" : "white"}`}
-            keyboardType='email-address'
-            textContentType='emailAddress'
             onPress={() => setShowTxt("email")}
+            text='Email'
           />
         </View>
 
@@ -131,6 +130,7 @@ export default function LoginScreen() {
 const styles = StyleSheet.create({
   container: {
     padding: 5,
+    backgroundColor: "#fff",
   },
 
   textContainer: {

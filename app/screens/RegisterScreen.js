@@ -28,7 +28,7 @@ const validationSchema = Yup.object().shape({
     .label("Confirmpassword"),
 });
 
-export default function RegisterScreen() {
+export default function RegisterScreen({ navigation }) {
   return (
     <Screen style={styles.container}>
       <ScrollView>
@@ -99,7 +99,11 @@ export default function RegisterScreen() {
             Log in
           </Text>
         </View>
-        <Button text='connexion' variant='secondary' />
+        <Button
+          text='Register'
+          variant='secondary'
+          onPress={() => navigation.navigate("Validation")}
+        />
         <View style={styles.TCPPTextContainer}>
           <Text as='paragraph' style={styles.text} color='gray'>
             By continue to log in. you accept our company
@@ -137,6 +141,7 @@ export default function RegisterScreen() {
 const styles = StyleSheet.create({
   container: {
     padding: 5,
+    backgroundColor: "#fff",
   },
 
   textContainer: {

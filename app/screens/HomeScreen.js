@@ -7,8 +7,7 @@ const HomeScreen = () => {
   return (
     <Screen style={styles.container}>
       <Header />
-
-      <View style={{ height: "80%" }}>
+      <View style={{ height: "84%" }}>
         <ScrollView>
           <Card style={{ flexDirection: "row" }}>
             <View style={{ padding: 10 }}>
